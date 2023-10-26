@@ -1,0 +1,24 @@
+<div class="card p-0">
+    <img *ngIf="product.image"
+         src="{{product.image}}">
+    <div class="card-body">
+        <h5 class="card-title">{{product.title}}</h5>
+        <hr />
+        <p class="card-text">{{(product.description | slice:0:30)+'...'}}</p>
+        <div class="d-grid gap-2">
+            <a href="#"
+               class="btn btn-primary">Подробнее</a>
+            <div class="d-grid gap-2"
+                 *ngIf="!productInCard(product.id); else productQuantity">
+                <button class="btn btn-success btn-block"
+                        (click)="addToCard(product)">В корзину</button>
+            </div>
+            <ng-template #productQuantity>
+                <div class="btn-row">
+                    <a class="btn btn-success m-2 float-start col-4"> + </a>
+                    <a class="btn btn-danger m-2 float-end col-4"> - </a>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
