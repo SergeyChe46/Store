@@ -24,6 +24,10 @@ export class ProductCardComponent {
     this.cardService.addProductToCard(product);
   }
 
+  removeFromCard(product: IProduct) {
+    this.cardService.removeProductFromCard(product);
+  }
+
   productInCard(id: number) {
     return this.cardService.checkProductInCard(id);
   }

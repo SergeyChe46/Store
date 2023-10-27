@@ -15,8 +15,10 @@
             </div>
             <ng-template #productQuantity>
                 <div class="btn-row">
-                    <a class="btn btn-success m-2 float-start col-4"> + </a>
-                    <a class="btn btn-danger m-2 float-end col-4"> - </a>
+                    <a class="btn btn-success m-2 float-start col-4"
+                       (click)="addToCard(product)"> + </a>
+                    <a class="btn btn-danger m-2 float-end col-4"
+                       (click)="removeFromCard(product)"> - </a>
                 </div>
             </ng-template>
         </div>
