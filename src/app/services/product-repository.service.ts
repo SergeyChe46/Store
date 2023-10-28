@@ -17,15 +17,15 @@ export class ProductRepositoryService<IProduct, IproductAddViewModel>
   }
 
   getById(id: number): Observable<IProduct> {
-    return this.httpService.get<IProduct>(`{this.URL}/{id}`);
+    return this.httpService.get<IProduct>(`${this.URL}/${id}`);
   }
 
   create(entity: IproductAddViewModel): Observable<IProduct> {
     return this.httpService.post<IProduct>(this.URL, entity);
   }
 
-  update(entity: IProduct): Observable<IProduct> {
-    return this.httpService.put<IProduct>(`{this.URL}/{id}`, entity);
+  update(id: number, entity: IProduct): Observable<IProduct> {
+    return this.httpService.put<IProduct>(`${this.URL}/${id}`, entity);
   }
 
   delete(id: number): Observable<IProduct> {
