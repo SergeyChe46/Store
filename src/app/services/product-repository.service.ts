@@ -16,6 +16,16 @@ export class ProductRepositoryService<IProduct, IproductAddViewModel>
     return this.httpService.get<IProduct[]>(this.URL);
   }
 
+  getAllCategories(): Observable<string[]> {
+    return this.httpService.get<string[]>(`${this.URL}/categories`);
+  }
+
+  getByCategory(category: string): Observable<IProduct[]> {
+    return this.httpService.get<IProduct[]>(
+      `${this.URL}/categories/${category}`
+    );
+  }
+
   getById(id: number): Observable<IProduct> {
     return this.httpService.get<IProduct>(`${this.URL}/${id}`);
   }

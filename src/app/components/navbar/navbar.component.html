@@ -22,12 +22,11 @@
                         Категории
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"
-                               href="#">Action</a></li>
-                        <li><a class="dropdown-item"
-                               href="#">Another action</a></li>
-                        <li><a class="dropdown-item"
-                               href="#">Something else here</a></li>
+                        <li>
+                            <a *ngFor="let cat of categories"
+                               class="dropdown-item"
+                               routerLink="/category/{{cat}}">{{cat}}</a>
+                        </li>
                     </ul>
                 </li>
                 <form class="d-flex"
@@ -42,6 +41,7 @@
             </ul>
         </div>
         <button class="btn"
+                (click)="open(mymodal)"
                 [ngClass]="getNumberOfProductsInCard()>0 ?
                 'btn-success': 'btn-secondary'">
             <h4>Товаров в корзине - {{getNumberOfProductsInCard()}}</h4>
@@ -49,3 +49,36 @@
         </button>
     </div>
 </nav>
+
+<ng-template #mymodal
+             let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title"
+            id="modal-basic-title">Корзина</h4>
+        <button type="button"
+                class="btn btn-danger close"
+                aria-label="Close"
+                (click)="modal.dismiss('Cross click')">X
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul *ngFor="let product of productCard"
+            class="list-group">
+            <h3>
+                <li class="list-group-item d-flex align-items-center  justify-content-between">
+                    {{product.product.title}}
+                    <span>
+                        <span class="badge bg-primary">
+                            {{product.product.price}}
+                        </span> * <span>{{product.quantity}}</span>
+                    </span>
+                </li>
+            </h3>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button type="button"
+                class="btn btn-outline-dark"
+                (click)="modal.close('Save click')">Ok</button>
+    </div>
+</ng-template>

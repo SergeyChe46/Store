@@ -1,0 +1,11 @@
+<div>
+    <span *ngFor="let star of rating">
+        <i *ngIf="star==1"
+           class="bi bi-star-fill"></i>
+        <i *ngIf="star==0"
+           class="bi bi-star"></i>
+    </span>
+</div>
+<p *ngIf="isDetailPage">
+    <small>На основании {{buyAmount}} покупок.</small>
+</p>

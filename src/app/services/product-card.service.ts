@@ -9,6 +9,10 @@ export class ProductCardService {
   constructor() {}
   private _productCard: IProductCard[] = [];
 
+  get Card(): IProductCard[] {
+    return this._productCard;
+  }
+
   /** Добавляет продукт в корзину, если его в ней нет. Иначе - обновляет количество товара.
    * @param product добавляемый продукт.
    */

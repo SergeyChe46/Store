@@ -8,6 +8,7 @@ import { ProductCardService } from 'src/app/services/product-card.service';
   styleUrls: ['./product-buttons.component.css'],
 })
 export class ProductButtonsComponent {
+  @Input() isDetailsPage: boolean = false;
   constructor(private cardService: ProductCardService) {}
 
   addToCard(product: IProduct) {

@@ -1,14 +1,14 @@
 <div class="card p-0">
     <img *ngIf="product.image"
          src="{{product.image}}">
-    <div class="card-body">
-        <h5 class="card-title">{{product.title}}</h5>
-        <hr />
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <hr />
         <p class="card-text">{{(product.description | slice:0:30)+'...'}}</p>
-        <div class="d-grid gap-2">
-            <a routerLink="products/{{product.id}}"
-               class="btn btn-primary">Подробнее</a>
-            <app-product-buttons [product]="product"></app-product-buttons>
-        </div>
+            <div class="d-grid gap-2">
+                <a routerLink="/products/{{product.id}}"
+                   class="btn btn-primary">Подробнее</a>
+                <app-product-buttons [product]="product"></app-product-buttons>
+                </div>
     </div>
 </div>

@@ -1,7 +1,6 @@
-<div class="card mb-3"
-     style="max-width: 540px;">
+<div class="card mb-3">
     <div class="row g-0">
-        <div class="col-md-4">
+        <div class="d-flex align-items-stretch col-md-4">
             <img src="{{product.image}}"
                  class="img-fluid rounded-start">
         </div>
@@ -9,22 +8,11 @@
             <div class="card-body">
                 <h5 class="card-title">{{product.title}}</h5>
                 <p class="card-text">{{product.description}}</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                <div>
-                    <div class="d-grid gap-2"
-                         *ngIf="!productInCard(product.id); else productQuantity">
-                        <button class="btn btn-success btn-block"
-                                (click)="addToCard(product)">В корзину</button>
-                    </div>
-                    <ng-template #productQuantity>
-                        <div class="btn-row">
-                            <a class="btn btn-success m-2 float-start col-4"
-                               (click)="addToCard(product)"> + </a>
-                            <a class="btn btn-danger m-2 float-end col-4"
-                               (click)="removeFromCard(product)"> - </a>
-                        </div>
-                    </ng-template>
-                </div>
+                <h3>
+                    <app-product-star-rating [product]="product"></app-product-star-rating>
+                </h3>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    <app-product-buttons [product]="product"></app-product-buttons>
             </div>
         </div>
     </div>

@@ -13,5 +13,6 @@ export class AppRoutingModule {}
 export const routes: Route[] = [
   { path: '', component: ProductsListComponent },
   { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'category/:category', component: ProductsListComponent },
   { path: '**', component: ProductsListComponent },
 ];
