@@ -10,7 +10,13 @@ import { ProductRepositoryService } from 'src/app/services/product-repository.se
   styleUrls: ['./products-list.component.css'],
 })
 export class ProductsListComponent implements OnInit {
+  /**
+   * Коллекция товаров.
+   */
   products: IProduct[];
+  /**
+   * Категория из строки запроса.
+   */
   category!: string | null;
 
   constructor(
@@ -24,11 +30,11 @@ export class ProductsListComponent implements OnInit {
   }
   ngOnInit(): void {
     this.category = this.route.snapshot.params['category'];
-
+    // Подписка на изменение категории в строке запроса.
     this.route.params.subscribe((param) => {
       this.category = param['category'];
     });
-
+    // Фильтрация продуктов по категориям.
     this.productservice.getAll().subscribe((data) => {
       this.products = this.category
         ? data.filter((p) => p.category == this.category)

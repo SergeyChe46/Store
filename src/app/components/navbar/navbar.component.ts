@@ -42,7 +42,10 @@ export class NavbarComponent implements OnInit {
       this.categories = cats;
     });
   }
-
+  /**
+   * Открывает модальное окно с корзиной
+   * @param content шаблон с корзиной
+   */
   open(content: any) {
     this.productCard = this.productCardService.Card;
     this.modalService
@@ -56,7 +59,11 @@ export class NavbarComponent implements OnInit {
         }
       );
   }
-
+  /**
+   * Закрытие корзины
+   * @param reason
+   * @returns
+   */
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

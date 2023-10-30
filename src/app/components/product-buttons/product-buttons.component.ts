@@ -9,6 +9,8 @@ import { ProductCardService } from 'src/app/services/product-card.service';
 })
 export class ProductButtonsComponent {
   @Input() isDetailsPage: boolean = false;
+  @Input() product!: IProduct;
+
   constructor(private cardService: ProductCardService) {}
 
   addToCard(product: IProduct) {
@@ -22,6 +24,4 @@ export class ProductButtonsComponent {
   productInCard(id: number) {
     return this.cardService.checkProductInCard(id);
   }
-
-  @Input() product!: IProduct;
 }
