@@ -33,7 +33,6 @@ export class ProductsListComponent implements OnInit {
     // Подписка на изменение категории в строке запроса.
     this.route.params.subscribe((param) => {
       this.category = param['category'];
-      console.log(this.category);
       // Фильтрация продуктов по категориям.
       this.productService.getAll().subscribe((data) => {
         this.products = this.category

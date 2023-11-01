@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand"
-           routerLink="/" routerLinkOptions="{exact: true}">Home</a>
+           routerLink="/" routerLinkOptions="{exact: true}">Главная</a>
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
@@ -29,15 +29,6 @@
                         </li>
                     </ul>
                 </li>
-                <form class="d-flex"
-                      role="search">
-                    <input class="form-control me-2"
-                           type="search"
-                           placeholder="Search"
-                           aria-label="Search">
-                    <button class="btn btn-outline-success"
-                            type="submit">Search</button>
-                </form>
             </ul>
         </div>
         <button class="btn"
@@ -67,10 +58,11 @@
             <h3>
                 <li class="list-group-item d-flex align-items-center  justify-content-between">
                     {{product.product.title}}
+                    <span>{{product.quantity}} шт.</span>
                     <span>
                         <span class="badge bg-primary">
                             {{product.product.price}}
-                        </span> * <span>{{product.quantity}}</span>
+                        </span>
                     </span>
                 </li>
             </h3>
