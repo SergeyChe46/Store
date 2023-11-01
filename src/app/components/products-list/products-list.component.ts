@@ -20,7 +20,7 @@ export class ProductsListComponent implements OnInit {
   category!: string | null;
 
   constructor(
-    private productservice: ProductRepositoryService<
+    private productService: ProductRepositoryService<
       IProduct,
       IproductAddViewModel
     >,
@@ -33,12 +33,13 @@ export class ProductsListComponent implements OnInit {
     // Подписка на изменение категории в строке запроса.
     this.route.params.subscribe((param) => {
       this.category = param['category'];
-    });
-    // Фильтрация продуктов по категориям.
-    this.productservice.getAll().subscribe((data) => {
-      this.products = this.category
-        ? data.filter((p) => p.category == this.category)
-        : data;
+      console.log(this.category);
+      // Фильтрация продуктов по категориям.
+      this.productService.getAll().subscribe((data) => {
+        this.products = this.category
+          ? data.filter((p) => p.category == this.category)
+          : data;
+      });
     });
   }
 }
