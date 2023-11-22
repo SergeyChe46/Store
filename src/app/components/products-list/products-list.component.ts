@@ -28,6 +28,7 @@ export class ProductsListComponent implements OnInit {
   ) {
     this.products = new Array<IProduct>();
   }
+  // Парсит строку запроса и получает категорию.
   ngOnInit(): void {
     this.category = this.route.snapshot.params['category'];
     // Подписка на изменение категории в строке запроса.

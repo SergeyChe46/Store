@@ -19,7 +19,9 @@ export class ProductDetailComponent implements OnInit {
     >,
     private httpRoute: ActivatedRoute
   ) {}
-
+/**
+ * Получает товар по его ID.
+ */
   ngOnInit(): void {
     let id = +this.httpRoute.snapshot.params['id'];
     this.productService.getById(id).subscribe((product) => {

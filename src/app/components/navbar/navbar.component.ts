@@ -28,11 +28,17 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.showCategories();
   }
-
+  /**
+   * Отображает количество товаров в корзине.
+   * @returns
+   */
   getNumberOfProductsInCard(): number {
     return this.productCardService.productsInCard();
   }
-
+  /**
+   *
+   * @returns Общую цену товаров в корзине.
+   */
   getCardAmount(): number {
     return this.productCardService.getCardAmount();
   }

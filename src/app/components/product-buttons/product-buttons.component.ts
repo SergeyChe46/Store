@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/models/iproduct';
 import { ProductCardService } from 'src/app/services/product-card.service';
-
+/**
+ * Основные действия с товарами до покупки.
+ */
 @Component({
   selector: 'app-product-buttons',
   templateUrl: './product-buttons.component.html',
@@ -20,7 +22,11 @@ export class ProductButtonsComponent {
   removeFromCard(product: IProduct) {
     this.cardService.removeProductFromCard(product);
   }
-
+  /**
+   * Проверяет наличие товара в корзине.
+   * @param id
+   * @returns
+   */
   productInCard(id: number) {
     return this.cardService.checkProductInCard(id);
   }
